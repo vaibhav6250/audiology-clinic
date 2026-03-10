@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audiology & Speech Therapy Clinic | Dr. Sanjay Kumar & Dr. Alok Suman | Patna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0B1F3A;
+    --navy-mid:   #152F52;
+    --navy-light: #1E406E;
+    --gold:       #BF8A30;
+    --gold-light: #D4A554;
+    --gold-pale:  #F8EDD8;
+    --teal:       #1A7A8A;
+    --teal-light: #22A0B5;
+    --cream:      #FAFAF6;
+    --gray:       #64748B;
+    --text:       #1A2B3C;
+    --border:     #E2E8F0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; line-height: 1.6; }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.18; }
+  a { text-decoration: none; }
+
+  /* NAVBAR */
+  #navbar {
+    position: fixed; top: 0; width: 100%; z-index: 1000; height: 76px;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  #navbar.scrolled { border-color: var(--gold-pale); box-shadow: 0 2px 32px rgba(11,31,58,0.09); }
+  .logo { display: flex; align-items: center; gap: 13px; }
+  .logo-mark {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; flex-shrink: 0; box-shadow: 0 4px 14px rgba(11,31,58,0.22);
+  }
+  .logo-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); line-height: 1.15; }
+  .logo-sub { display: block; font-size: 0.7rem; font-weight: 600; color: var(--teal); letter-spacing: 0.07em; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { background: var(--navy) !important; color: #fff !important; padding: 10px 22px; border-radius: 8px; font-weight: 700 !important; }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; border: none; background: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+  .mobile-menu { display: none; position: fixed; top: 76px; left: 0; right: 0; z-index: 999; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 5%; box-shadow: 0 8px 32px rgba(11,31,58,0.1); flex-direction: column; gap: 16px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--navy); font-weight: 600; font-size: 0.95rem; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; background: var(--navy);
+    display: grid; grid-template-columns: 1fr 480px;
+    align-items: center; gap: 60px; padding: 120px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 65% 40%, rgba(26,122,138,0.22) 0%, transparent 55%), radial-gradient(ellipse at 5% 90%, rgba(191,138,48,0.12) 0%, transparent 50%);
+  }
+  .hero::after { content: ''; position: absolute; top: -200px; right: -200px; width: 700px; height: 700px; border-radius: 50%; border: 1px solid rgba(191,138,48,0.1); }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(191,138,48,0.15); border: 1px solid rgba(191,138,48,0.3);
+    color: var(--gold-light); padding: 7px 18px; border-radius: 100px;
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 26px;
+  }
+  .hero h1 { font-size: clamp(2.6rem, 4.5vw, 4.2rem); color: #fff; font-weight: 700; margin-bottom: 12px; }
+  .hero h1 .accent { color: var(--gold-light); font-style: italic; display: block; }
+  .hero-tagline { color: rgba(255,255,255,0.65); font-size: 1.05rem; max-width: 520px; line-height: 1.8; margin-bottom: 22px; }
+  .doctors-strip { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 34px; }
+  .doctor-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 14px 20px; transition: background 0.2s; }
+  .doctor-chip:hover { background: rgba(255,255,255,0.12); }
+  .dc-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; font-weight: 600; }
+  .dc-qual { font-size: 0.78rem; color: var(--gold-light); font-weight: 600; margin-top: 2px; }
+  .dc-role { font-size: 0.74rem; color: rgba(255,255,255,0.5); margin-top: 1px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 46px; }
+  .btn-gold { background: var(--gold); color: var(--navy); padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; display: inline-block; box-shadow: 0 4px 20px rgba(191,138,48,0.35); }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(191,138,48,0.45); }
+  .btn-ghost { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 14px 30px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; transition: all 0.25s; display: inline-block; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.16); }
+  .hero-stats { display: flex; gap: 44px; }
+  .stat-n { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; }
+  .stat-l { color: rgba(255,255,255,0.5); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+  /* HERO CARD */
+  .hero-card { position: relative; z-index: 2; background: #fff; border-radius: 22px; padding: 40px 36px; box-shadow: 0 40px 100px rgba(0,0,0,0.35); }
+  .hero-card-top { background: var(--navy); border-radius: 14px; padding: 16px 20px; margin-bottom: 26px; display: flex; align-items: center; gap: 12px; }
+  .hero-card-top strong { color: #fff; font-size: 0.93rem; display: block; }
+  .hero-card-top p { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+  .hero-card h3 { font-size: 1.55rem; color: var(--navy); margin-bottom: 4px; }
+  .hero-card > p { font-size: 0.85rem; color: var(--gray); margin-bottom: 22px; }
+  .fg { margin-bottom: 14px; }
+  .fg label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .fg input, .fg select { width: 100%; padding: 12px 15px; border: 1.5px solid var(--border); border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; color: var(--text); outline: none; transition: border-color 0.2s; background: #fff; }
+  .fg input:focus, .fg select:focus { border-color: var(--teal); }
+  .form-submit { width: 100%; padding: 14px; background: var(--navy); color: #fff; border: none; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; margin-top: 4px; }
+  .form-submit:hover { background: var(--teal); transform: translateY(-1px); }
+  .form-phone { text-align: center; margin-top: 13px; font-size: 0.82rem; color: var(--gray); }
+  .form-phone a { color: var(--teal); font-weight: 700; }
+
+  /* TRUST BAR */
+  .trust-bar { background: var(--gold-pale); border-bottom: 1px solid rgba(191,138,48,0.2); padding: 16px 5%; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 9px; font-size: 0.84rem; font-weight: 700; color: var(--navy); }
+
+  /* SECTIONS */
+  .section { padding: 90px 5%; }
+  .section-cream { background: var(--cream); }
+  .section-navy { background: var(--navy); }
+  .label { display: inline-block; font-size: 0.72rem; font-weight: 800; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .label-gold { color: var(--gold-light); }
+  .section-title { font-size: clamp(1.9rem, 3vw, 2.9rem); color: var(--navy); font-weight: 700; margin-bottom: 14px; }
+  .section-title-white { color: #fff; }
+  .section-desc { color: var(--gray); font-size: 0.97rem; line-height: 1.8; max-width: 580px; }
+  .section-header { margin-bottom: 56px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-desc { margin: 0 auto; }
+
+  /* ABOUT / DOCTORS */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .doctor-cards { display: flex; flex-direction: column; gap: 20px; }
+  .doc-card { background: #fff; border-radius: 16px; padding: 26px 28px; border: 1px solid var(--border); display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 24px rgba(11,31,58,0.05); transition: all 0.3s; }
+  .doc-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(11,31,58,0.1); border-color: var(--gold-pale); }
+  .doc-av { width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #fff; border: 3px solid var(--gold-pale); }
+  .doc-name { font-size: 1.15rem; color: var(--navy); font-weight: 600; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+  .doc-qual { font-size: 0.82rem; color: var(--teal); font-weight: 700; margin-bottom: 3px; }
+  .doc-role { font-size: 0.8rem; color: var(--gray); }
+  .doc-badge { display: inline-block; background: var(--gold-pale); color: var(--gold); border-radius: 100px; padding: 3px 12px; font-size: 0.72rem; font-weight: 800; margin-top: 8px; letter-spacing: 0.04em; }
+  .about-list { list-style: none; margin: 24px 0 32px; }
+  .about-list li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; font-size: 0.92rem; line-height: 1.6; color: var(--text); }
+  .about-list li::before { content: '✓'; min-width: 22px; height: 22px; background: rgba(26,122,138,0.1); color: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; margin-top: 2px; flex-shrink: 0; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .svc-card { background: #fff; border-radius: 18px; padding: 32px 26px; border: 1px solid var(--border); transition: all 0.3s; position: relative; overflow: hidden; }
+  .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+  .svc-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(11,31,58,0.1); }
+  .svc-card:hover::after { transform: scaleX(1); }
+  .svc-icon { width: 58px; height: 58px; border-radius: 14px; background: var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; margin-bottom: 20px; }
+  .svc-card h3 { font-size: 1.18rem; color: var(--navy); margin-bottom: 10px; }
+  .svc-card p { color: var(--gray); font-size: 0.87rem; line-height: 1.75; }
+  .svc-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: var(--teal); font-weight: 700; font-size: 0.85rem; transition: gap 0.2s; }
+  .svc-link:hover { gap: 10px; }
+
+  /* BRANDS */
+  .brands-wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 46px; }
+  .brand-pill { background: #fff; border: 1.5px solid var(--border); border-radius: 100px; padding: 11px 28px; font-weight: 800; font-size: 0.88rem; color: var(--navy); transition: all 0.25s; cursor: default; }
+  .brand-pill:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(11,31,58,0.07); }
+
+  /* WHY US */
+  .whyus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .reasons { display: flex; flex-direction: column; gap: 16px; }
+  .reason { display: flex; gap: 18px; align-items: flex-start; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 22px; transition: background 0.2s, border-color 0.2s; }
+  .reason:hover { background: rgba(255,255,255,0.09); border-color: rgba(191,138,48,0.3); }
+  .reason-num { min-width: 40px; height: 40px; border-radius: 10px; background: var(--gold); color: var(--navy); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; flex-shrink: 0; }
+  .reason h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 4px; }
+  .reason p { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+  .whyus-visual { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 22px; padding: 42px 36px; }
+  .whyus-visual h3 { font-size: 1.9rem; color: #fff; margin-bottom: 10px; }
+  .whyus-visual p { color: rgba(255,255,255,0.6); font-size: 0.92rem; line-height: 1.8; margin-bottom: 30px; }
+  .vstats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .vstat { background: rgba(255,255,255,0.06); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); }
+  .vstat-n { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; }
+  .vstat-l { color: rgba(255,255,255,0.5); font-size: 0.78rem; margin-top: 4px; }
+
+  /* PRICING */
+  .price-table { width: 100%; border-collapse: collapse; margin-top: 44px; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 40px rgba(11,31,58,0.07); }
+  .price-table thead tr { background: var(--navy); }
+  .price-table thead th { padding: 17px 22px; color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.84rem; font-weight: 700; text-align: left; }
+  .price-table tbody tr { border-bottom: 1px solid var(--border); background: #fff; transition: background 0.2s; }
+  .price-table tbody tr:last-child { border-bottom: none; }
+  .price-table tbody tr:hover { background: var(--cream); }
+  .price-table td { padding: 17px 22px; font-size: 0.9rem; color: var(--text); }
+  .price-table td:first-child { font-weight: 700; }
+  .price-type { font-size: 0.75rem; color: var(--gray); display: block; font-weight: 400; }
+  .emi-badge { display: inline-block; background: var(--gold-pale); color: var(--gold); border-radius: 100px; padding: 3px 12px; font-size: 0.74rem; font-weight: 800; }
+  .price-highlight { color: var(--teal); font-weight: 800; font-size: 1rem; }
+
+  /* TESTIMONIALS */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testi-card { background: #fff; border-radius: 18px; padding: 30px 26px; border: 1px solid var(--border); transition: all 0.3s; }
+  .testi-card:hover { box-shadow: 0 16px 48px rgba(11,31,58,0.09); transform: translateY(-4px); }
+  .testi-q { font-size: 3rem; color: var(--gold-pale); line-height: 1; font-family: Georgia, serif; margin-bottom: 10px; }
+  .testi-text { color: var(--gray); font-size: 0.87rem; line-height: 1.8; margin-bottom: 20px; }
+  .testi-stars { color: #F59E0B; font-size: 0.88rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-author { display: flex; gap: 12px; align-items: center; }
+  .testi-av { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--navy), var(--teal)); display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+  .testi-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+  .testi-loc { font-size: 0.76rem; color: var(--gray); }
+
+  /* FAQ */
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+  .faq-item { border: 1.5px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; background: #fff; transition: box-shadow 0.2s; }
+  .faq-item:hover { box-shadow: 0 4px 20px rgba(11,31,58,0.06); }
+  .faq-q { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 0.93rem; color: var(--navy); user-select: none; transition: background 0.2s; }
+  .faq-q:hover { background: var(--cream); }
+  .faq-ico { width: 30px; height: 30px; min-width: 30px; border-radius: 50%; background: var(--gold-pale); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 300; transition: transform 0.3s, background 0.2s; }
+  .faq-item.open .faq-ico { transform: rotate(45deg); background: var(--navy); color: #fff; }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding 0.3s; background: var(--cream); font-size: 0.9rem; color: var(--gray); line-height: 1.8; padding: 0 24px; }
+  .faq-item.open .faq-a { max-height: 300px; padding: 18px 24px 22px; }
+
+  /* INFO BAR */
+  .info-bar { background: var(--navy); padding: 60px 5%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .info-block { display: flex; gap: 18px; align-items: flex-start; }
+  .info-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(191,138,48,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+  .info-label { font-size: 0.74rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
+  .info-val { color: #fff; font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
+  .info-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; line-height: 1.6; }
+
+  /* CTA BAND */
+  .cta-band { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%); padding: 80px 5%; text-align: center; position: relative; overflow: hidden; }
+  .cta-band::before { content: ''; position: absolute; left: -80px; top: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+  .cta-band h2 { font-size: clamp(2rem, 3.8vw, 3rem); color: var(--navy); margin-bottom: 14px; position: relative; }
+  .cta-band p { color: rgba(11,31,58,0.65); font-size: 1rem; max-width: 500px; margin: 0 auto 34px; line-height: 1.75; position: relative; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-navy { background: var(--navy); color: #fff; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; display: inline-block; }
+  .btn-navy:hover { background: #0d2745; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(11,31,58,0.3); }
+  .btn-outline-navy { background: transparent; color: var(--navy); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; border: 2px solid var(--navy); transition: all 0.25s; display: inline-block; }
+  .btn-outline-navy:hover { background: var(--navy); color: #fff; }
+
+  /* FOOTER */
+  footer { background: #071424; padding: 70px 5% 28px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.6fr; gap: 60px; margin-bottom: 56px; }
+  .f-brand p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin: 14px 0 22px; }
+  .f-socials { display: flex; gap: 10px; }
+  .fsoc { width: 38px; height: 38px; border-radius: 9px; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.2s; }
+  .fsoc:hover { background: var(--teal); color: #fff; }
+  .f-col h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 18px; }
+  .f-links { list-style: none; }
+  .f-links li { margin-bottom: 10px; }
+  .f-links a { color: rgba(255,255,255,0.5); font-size: 0.86rem; transition: color 0.2s; }
+  .f-links a:hover { color: var(--gold-light); }
+  .f-ci { display: flex; gap: 12px; margin-bottom: 15px; font-size: 0.85rem; line-height: 1.55; }
+  .f-ci-ico { color: var(--gold-light); font-size: 1rem; margin-top: 2px; flex-shrink: 0; }
+  .f-ci-val { color: rgba(255,255,255,0.6); }
+  .f-ci-val a { color: rgba(255,255,255,0.85); transition: color 0.2s; }
+  .f-ci-val a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  /* FLOAT BUTTONS */
+  .float-btns { position: fixed; bottom: 26px; right: 26px; z-index: 999; display: flex; gap: 10px; align-items: center; }
+  .float-btn { display: flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 100px; font-weight: 700; font-size: 0.88rem; color: #fff; box-shadow: 0 6px 24px rgba(0,0,0,0.2); transition: all 0.25s; }
+  .float-btn.wa { background: #25D366; box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+  .float-btn.wa:hover { background: #1EB958; transform: translateY(-2px); }
+  .float-btn.call { background: var(--navy); }
+  .float-btn.call:hover { background: var(--teal); transform: translateY(-2px); }
+
+  /* FADE IN */
+  .fi { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fi.vis { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1100px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-tagline, .hero-btns, .hero-stats, .doctors-strip { margin-left: auto; margin-right: auto; justify-content: center; }
+    .hero-card { max-width: 480px; margin: 0 auto; }
+    .about-grid, .whyus-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .testi-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .info-bar { grid-template-columns: 1fr; gap: 30px; }
+  }
+  @media (max-width: 680px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid, .testi-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero { padding: 100px 5% 60px; }
+    .float-btns { flex-direction: column; align-items: flex-end; bottom: 16px; right: 14px; }
+    .trust-bar { gap: 18px; }
+    .vstats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark">🦻</div>
+    <div>
+      <div class="logo-title">Audiology & Speech Therapy Clinic</div>
+      <span class="logo-sub">Patna, Bihar &nbsp;·&nbsp; RCI Certified</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Book Free Test</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About Us</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#brands" onclick="closeMenu()">Hearing Aid Brands</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#testimonials" onclick="closeMenu()">Patient Reviews</a>
+  <a href="#contact" onclick="closeMenu()" class="btn-gold" style="text-align:center;padding:12px 20px;">📅 Book Free Test</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content fi">
+    <div class="hero-eyebrow">📍 Dinkar Golambar, Patna &nbsp;·&nbsp; RCI Certified Specialists</div>
+    <h1>Expert Care for<br><span class="accent">Speech & Hearing</span></h1>
+    <p class="hero-tagline">Trusted by thousands of families across Patna and Bihar. Advanced audiological diagnostics, premium hearing aids, and compassionate speech therapy — all under one roof.</p>
+
+    <div class="doctors-strip">
+      <div class="doctor-chip">
+        <div class="dc-name">Dr. Sanjay Kumar</div>
+        <div class="dc-qual">MSc. (Speech & Hearing)</div>
+        <div class="dc-role">Audiologist & Speech Pathologist</div>
+      </div>
+      <div class="doctor-chip">
+        <div class="dc-name">Dr. Alok Suman</div>
+        <div class="dc-qual">BASLP, MSc. (Audiology)</div>
+        <div class="dc-role">Audiologist & Speech Pathologist</div>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">📅 Book Free Consultation</a>
+      <a href="tel:+918102131401" class="btn-ghost">📞 08102 131 401</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="stat-n">10+</span><span class="stat-l">Years Experience</span></div>
+      <div><span class="stat-n">5000+</span><span class="stat-l">Patients Helped</span></div>
+      <div><span class="stat-n">98%</span><span class="stat-l">Satisfaction Rate</span></div>
+    </div>
+  </div>
+
+  <div class="hero-card fi" style="transition-delay:0.18s">
+    <div class="hero-card-top">
+      <span style="font-size:1.5rem">🆓</span>
+      <div>
+        <strong>Free Hearing Screening Available</strong>
+        <p>Walk in or call to book your complimentary test</p>
+      </div>
+    </div>
+    <h3>Book Your Appointment</h3>
+    <p>Fill in your details and we'll confirm your slot shortly.</p>
+    <div class="fg"><label>Full Name</label><input type="text" placeholder="e.g. Rahul Sharma"></div>
+    <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+    <div class="fg">
+      <label>Select Service</label>
+      <select>
+        <option value="">— Choose a service —</option>
+        <option>Hearing Test / Audiometry</option>
+        <option>Hearing Aid Fitting & Trial</option>
+        <option>Speech Therapy</option>
+        <option>Tinnitus Consultation</option>
+        <option>Child Hearing Evaluation</option>
+        <option>Hearing Aid Repair & Service</option>
+        <option>Ear Wax Removal</option>
+      </select>
+    </div>
+    <button class="form-submit" id="formBtn">Confirm My Appointment →</button>
+    <p class="form-phone">Or call: <a href="tel:+918102131401">08102 131 401</a></p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">🏅 RCI Certified Specialists</div>
+  <div class="trust-item">🆓 Free Basic Hearing Test</div>
+  <div class="trust-item">🔬 Advanced Diagnostic Equipment</div>
+  <div class="trust-item">💳 Easy EMI on Hearing Aids</div>
+  <div class="trust-item">👶 Pediatric & Adult Care</div>
+</div>
+
+<!-- ABOUT / DOCTORS -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="fi">
+      <div class="label">Meet Our Specialists</div>
+      <h2 class="section-title">Two Expert Doctors, One Dedicated Clinic</h2>
+      <p class="section-desc" style="margin-bottom:26px">At Audiology & Speech Therapy Clinic, our two highly qualified specialists bring decades of combined experience in diagnosing and treating hearing loss and speech disorders across all age groups.</p>
+      <div class="doctor-cards">
+        <div class="doc-card">
+          <div class="doc-av">SK</div>
+          <div>
+            <div class="doc-name">Dr. Sanjay Kumar</div>
+            <div class="doc-qual">MSc. (Speech & Hearing)</div>
+            <div class="doc-role">Audiologist & Speech Pathologist</div>
+            <div class="doc-badge">RCI Registered</div>
+          </div>
+        </div>
+        <div class="doc-card">
+          <div class="doc-av">AS</div>
+          <div>
+            <div class="doc-name">Dr. Alok Suman</div>
+            <div class="doc-qual">BASLP, MSc. (Audiology)</div>
+            <div class="doc-role">Audiologist & Speech Pathologist</div>
+            <div class="doc-badge">RCI Registered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fi" style="transition-delay:0.15s">
+      <div class="label">What We Treat</div>
+      <h2 class="section-title">Hearing Loss, Speech Delays & More</h2>
+      <p class="section-desc">Whether you're facing early signs of hearing loss, a child with delayed speech, or recovering from a stroke — we have the expertise and the tools to help.</p>
+      <ul class="about-list">
+        <li>Complete Audiological Assessments (PTA, Tympanometry, ABR/BERA, OAE)</li>
+        <li>Digital & Invisible Hearing Aid Fitting with Free Trial Period</li>
+        <li>Speech Therapy for Children — Stammering, Articulation, Delayed Speech</li>
+        <li>Speech Rehabilitation for Adults & Post-Stroke Patients</li>
+        <li>Tinnitus (Ringing in Ear) Evaluation & Management Plans</li>
+        <li>Newborn & Pediatric Hearing Screening Programs</li>
+        <li>Safe Ear Wax Removal & Ear Health Monitoring</li>
+        <li>Balance, Dizziness & Vertigo-Related Hearing Evaluation</li>
+      </ul>
+      <a href="#contact" class="btn-gold">Book a Free Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-cream" id="services">
+  <div class="section-header center">
+    <div class="label">Our Expertise</div>
+    <h2 class="section-title">Complete Speech & Hearing Care Services</h2>
+    <p class="section-desc">From your first hearing test to years of ongoing support — comprehensive, personalized care at every stage of your journey.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card fi">
+      <div class="svc-icon">🔊</div>
+      <h3>Hearing Tests & Audiometry</h3>
+      <p>Comprehensive evaluations using advanced PTA, impedance audiometry, OAE, and ABR/BERA testing for accurate diagnosis across all ages.</p>
+      <a href="#contact" class="svc-link">Book a Test →</a>
+    </div>
+    <div class="svc-card fi" style="transition-delay:0.08s">
+      <div class="svc-icon">🦻</div>
+      <h3>Hearing Aid Fitting & Trial</h3>
+      <p>Free trial periods across all major brands. Perfect acoustic calibration and comfort fitting — so you experience the difference before committing.</p>
+      <a href="#contact" class="svc-link">Try a Hearing Aid →</a>
+    </div>
+    <div class="svc-card fi" style="transition-delay:0.16s">
+      <div class="svc-icon">🗣️</div>
+      <h3>Speech Therapy</h3>
+      <p>Expert speech-language therapy for children and adults — stuttering, articulation disorders, language delays, voice disorders, and aphasia rehabilitation.</p>
+      <a href="#contact" class="svc-link">Start Therapy →</a>
+    </div>
+    <div class="svc-card fi" style="transition-delay:0.08s">
+      <div class="svc-icon">👶</div>
+      <h3>Pediatric Hearing Care</h3>
+      <p>Gentle newborn screening and child-friendly hearing evaluations. Early detection programs ensure your child's communication development stays on track.</p>
+      <a href="#contact" class="svc-link">Learn More →</a>
+    </div>
+    <div class="svc-card fi" style="transition-delay:0.16s">
+      <div class="svc-icon">🔔</div>
+      <h3>Tinnitus Management</h3>
+      <p>Persistent ringing, buzzing, or hissing in the ears? Comprehensive evaluation, sound therapy, and counselling to reduce its impact on your life.</p>
+      <a href="#contact" class="svc-link">Get Relief →</a>
+    </div>
+    <div class="svc-card fi" style="transition-delay:0.24s">
+      <div class="svc-icon">🔧</div>
+      <h3>Hearing Aid Repair & Servicing</h3>
+      <p>In-house repairs, cleaning, fine-tuning, and battery replacement for all major brands. Fast turnaround — we keep your device performing at its best.</p>
+      <a href="#contact" class="svc-link">Book Repair →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="section" id="brands">
+  <div class="section-header center">
+    <div class="label">Authorised Dealer</div>
+    <h2 class="section-title">Premium Hearing Aid Brands We Carry</h2>
+    <p class="section-desc">From entry-level digital aids to premium rechargeable and completely invisible models — every budget, every lifestyle.</p>
+  </div>
+  <div class="brands-wrap fi">
+    <div class="brand-pill">Phonak</div>
+    <div class="brand-pill">Signia</div>
+    <div class="brand-pill">Widex</div>
+    <div class="brand-pill">Oticon</div>
+    <div class="brand-pill">ReSound</div>
+    <div class="brand-pill">Starkey</div>
+    <div class="brand-pill">Unitron</div>
+    <div class="brand-pill">Bernafon</div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section section-navy">
+  <div class="whyus-grid">
+    <div class="fi">
+      <div class="label label-gold">Why Choose Us</div>
+      <h2 class="section-title section-title-white" style="margin-bottom:28px">Why Patna Families Trust Our Clinic</h2>
+      <div class="reasons">
+        <div class="reason">
+          <div class="reason-num">1</div>
+          <div><h4>Qualified & RCI-Certified Specialists</h4><p>Both our doctors hold postgraduate degrees and are registered with the Rehabilitation Council of India (RCI).</p></div>
+        </div>
+        <div class="reason">
+          <div class="reason-num">2</div>
+          <div><h4>Advanced Diagnostic Technology</h4><p>State-of-the-art audiometers, tympanometers, OAE and ABR/BERA equipment for precise, reliable diagnosis.</p></div>
+        </div>
+        <div class="reason">
+          <div class="reason-num">3</div>
+          <div><h4>Personalized, Patient-First Approach</h4><p>No two patients are the same. Every plan is tailored to your unique hearing profile, lifestyle and budget.</p></div>
+        </div>
+        <div class="reason">
+          <div class="reason-num">4</div>
+          <div><h4>Transparent Pricing & Easy EMI</h4><p>No hidden charges. Flexible zero-cost EMI options so financial barriers never stop someone from hearing better.</p></div>
+        </div>
+        <div class="reason">
+          <div class="reason-num">5</div>
+          <div><h4>Comprehensive Aftercare Support</h4><p>Regular follow-ups, fine-tuning, and lifetime support included — our relationship doesn't end at the fitting.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="whyus-visual fi" style="transition-delay:0.2s">
+      <h3>Trusted Hearing Healthcare in Patna</h3>
+      <p>From newborns in their first weeks to seniors in their eighties — we've helped thousands of Bihar families reconnect with the sounds that matter most.</p>
+      <div class="vstats">
+        <div class="vstat"><span class="vstat-n">5000+</span><div class="vstat-l">Patients Helped</div></div>
+        <div class="vstat"><span class="vstat-n">10+</span><div class="vstat-l">Years of Practice</div></div>
+        <div class="vstat"><span class="vstat-n">8+</span><div class="vstat-l">Hearing Aid Brands</div></div>
+        <div class="vstat"><span class="vstat-n">98%</span><div class="vstat-l">Satisfaction Rate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-cream" id="pricing">
+  <div class="section-header center">
+    <div class="label">Transparent Pricing</div>
+    <h2 class="section-title">Hearing Aid Prices in Patna</h2>
+    <p class="section-desc">Honest, upfront pricing with no hidden costs. All devices come with warranty and free follow-up appointments. Easy EMI available across all models.</p>
+  </div>
+  <table class="price-table">
+    <thead>
+      <tr>
+        <th>Type</th><th>Starting Price</th><th>Warranty</th><th>EMI</th><th>Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>BTE <span class="price-type">Behind the Ear</span></td><td class="price-highlight">₹ 25,000</td><td>1–2 Years</td><td><span class="emi-badge">Available</span></td><td>Moderate to severe loss; easy to handle</td></tr>
+      <tr><td>RIC <span class="price-type">Receiver in Canal</span></td><td class="price-highlight">₹ 35,000</td><td>1–2 Years</td><td><span class="emi-badge">Available</span></td><td>Mild to moderate; discreet and comfortable</td></tr>
+      <tr><td>ITE <span class="price-type">In the Ear</span></td><td class="price-highlight">₹ 40,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Custom shell; ideal for seniors</td></tr>
+      <tr><td>CIC <span class="price-type">Completely in Canal</span></td><td class="price-highlight">₹ 45,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Nearly invisible; mild to moderate loss</td></tr>
+      <tr><td>IIC <span class="price-type">Invisible in Canal</span></td><td class="price-highlight">₹ 55,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Completely invisible; premium cosmetic choice</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="section-header center">
+    <div class="label">Patient Stories</div>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p class="section-desc">Real experiences from real families we've had the privilege of helping across Patna and Bihar.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fi">
+      <div class="testi-q">"</div>
+      <p class="testi-text">We brought our 4-year-old for speech therapy. Within just 2 months the improvement was incredible — from barely speaking to forming complete sentences. Dr. Sanjay's patience and approach with children is truly exceptional.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author"><div class="testi-av">R</div><div><div class="testi-name">Ravi Shankar Prasad</div><div class="testi-loc">Machhua Toli, Patna</div></div></div>
+    </div>
+    <div class="testi-card fi" style="transition-delay:0.1s">
+      <div class="testi-q">"</div>
+      <p class="testi-text">My 70-year-old father had been avoiding a hearing aid for years. Dr. Alok Suman was so kind and patient — he explained everything clearly. My father can now enjoy full family conversations again. Life-changing.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author"><div class="testi-av">P</div><div><div class="testi-name">Priya Singh</div><div class="testi-loc">Kankarbagh, Patna</div></div></div>
+    </div>
+    <div class="testi-card fi" style="transition-delay:0.2s">
+      <div class="testi-q">"</div>
+      <p class="testi-text">I had been struggling with tinnitus for over a year. After the thorough evaluation and therapy plan from this clinic, the ringing has reduced dramatically. The team is professional, warm, and truly cares. Highly recommended.</p>
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Amit Kumar Verma</div><div class="testi-loc">Boring Road, Patna</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-cream">
+  <div class="section-header center">
+    <div class="label">Have Questions?</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is the hearing test really free? <div class="faq-ico">+</div></div>
+      <div class="faq-a">Yes — we offer a complimentary basic hearing screening for all new patients. If a more detailed audiological evaluation (PTA, tympanometry, or ABR/BERA) is required, our team will explain exactly what's needed and why, with no pressure to proceed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How long does a hearing aid fitting take? <div class="faq-ico">+</div></div>
+      <div class="faq-a">A typical fitting takes 45 minutes to 1 hour. We programme the device to your audiogram, explain how to use and care for it, and answer all your questions. Follow-up fine-tuning appointments are included in our care package.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What hearing aid brands do you offer? <div class="faq-ico">+</div></div>
+      <div class="faq-a">We are authorised dealers for Phonak, Signia, Widex, Oticon, ReSound, Starkey, Unitron, and Bernafon — covering the full range from affordable digital models to premium rechargeable and invisible-in-canal devices.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do you provide speech therapy for adults? <div class="faq-ico">+</div></div>
+      <div class="faq-a">Absolutely. We offer speech-language therapy for adults with stuttering, voice disorders, aphasia (post-stroke), dysarthria, and other communication challenges. Our therapists design individualized rehabilitation plans for every patient.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is EMI available for hearing aids? <div class="faq-ico">+</div></div>
+      <div class="faq-a">Yes, flexible and easy EMI options are available across all hearing aid models. We believe cost should never be a barrier to better hearing. Ask about our current offers when you visit or call us.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What areas of Patna do you serve? <div class="faq-ico">+</div></div>
+      <div class="faq-a">Our clinic is located near Dinkar Golambar on Arya Kumar Road, Patna. We serve patients from Machhua Toli, Kankarbagh, Boring Road, Rajendra Nagar, and all across Patna and Bihar. Home visit consultations are available for elderly or mobility-challenged patients.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR / CONTACT -->
+<div class="info-bar" id="contact">
+  <div class="info-block fi">
+    <div class="info-icon">📍</div>
+    <div>
+      <div class="info-label">Our Location</div>
+      <div class="info-val">Deepraj Complex, Arya Kumar Road</div>
+      <div class="info-sub">Opp. Machvatoli Power House, near Maharana Pratap Bhawan, Dinkar Golambar, Langer Toli Gali, Patna – 800016</div>
+    </div>
+  </div>
+  <div class="info-block fi" style="transition-delay:0.1s">
+    <div class="info-icon">🕐</div>
+    <div>
+      <div class="info-label">Clinic Hours</div>
+      <div class="info-val">Monday – Saturday</div>
+      <div class="info-sub">Open · Closes 8:30 PM<br>Sunday: By Appointment Only</div>
+    </div>
+  </div>
+  <div class="info-block fi" style="transition-delay:0.2s">
+    <div class="info-icon">📞</div>
+    <div>
+      <div class="info-label">Call / WhatsApp</div>
+      <div class="info-val"><a href="tel:+918102131401" style="color:#fff">08102 131 401</a></div>
+      <div class="info-sub">Call or WhatsApp anytime for quick booking &amp; enquiries</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Hear Life Fully Again?</h2>
+  <p>Book your free consultation today. Dr. Sanjay Kumar and Dr. Alok Suman are here to guide you to the right solution.</p>
+  <div class="cta-btns">
+    <a href="tel:+918102131401" class="btn-navy">📞 Call 08102 131 401</a>
+    <a href="https://wa.me/918102131401" class="btn-outline-navy">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="logo">
+        <div class="logo-mark" style="background:linear-gradient(135deg,#1E406E,#0B1F3A)">🦻</div>
+        <div>
+          <div class="logo-title" style="color:#fff">Audiology & Speech Therapy Clinic</div>
+          <span class="logo-sub">Patna, Bihar</span>
+        </div>
+      </div>
+      <p>Patna's trusted centre for comprehensive speech and hearing care. Helping individuals and families across Bihar reconnect with sound for over a decade.</p>
+      <div class="f-socials">
+        <a href="#" class="fsoc" title="Facebook">f</a>
+        <a href="#" class="fsoc" title="Instagram">📷</a>
+        <a href="https://wa.me/918102131401" class="fsoc" title="WhatsApp">💬</a>
+        <a href="#" class="fsoc" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="f-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#brands">Hearing Aid Brands</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Our Services</h4>
+      <ul class="f-links">
+        <li><a href="#">Hearing Tests & Audiometry</a></li>
+        <li><a href="#">Hearing Aid Fitting</a></li>
+        <li><a href="#">Speech Therapy</a></li>
+        <li><a href="#">Tinnitus Management</a></li>
+        <li><a href="#">Pediatric Hearing Care</a></li>
+        <li><a href="#">Hearing Aid Repair</a></li>
+        <li><a href="#">Ear Wax Removal</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact Us</h4>
+      <div class="f-ci"><span class="f-ci-ico">📍</span><span class="f-ci-val">Deepraj Complex, Arya Kumar Rd, Opp. Machvatoli Power House, Dinkar Golambar, Patna – 800016</span></div>
+      <div class="f-ci"><span class="f-ci-ico">📞</span><span class="f-ci-val"><a href="tel:+918102131401">08102 131 401</a></span></div>
+      <div class="f-ci"><span class="f-ci-ico">🕐</span><span class="f-ci-val">Mon–Sat: Open till 8:30 PM<br>Sunday: By Appointment</span></div>
+      <div class="f-ci"><span class="f-ci-ico">🗺️</span><span class="f-ci-val">Serving Machhua Toli, Kankarbagh, Boring Road, Rajendra Nagar & all of Patna</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Audiology & Speech Therapy Clinic, Patna. All rights reserved.</span>
+    <span>Dr. Sanjay Kumar &amp; Dr. Alok Suman — RCI Certified</span>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/918102131401" class="float-btn wa">💬 WhatsApp</a>
+  <a href="tel:+918102131401" class="float-btn call">📞 Call Now</a>
+</div>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.hero .fi').forEach((el, i) => {
+    setTimeout(() => el.classList.add('vis'), 150 + i * 160);
+  });
+
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  document.getElementById('formBtn').addEventListener('click', function() {
+    this.textContent = '✅ Appointment Requested!';
+    this.style.background = '#1A7A8A';
+    setTimeout(() => { this.textContent = 'Confirm My Appointment →'; this.style.background = ''; }, 3000);
+  });
+</script>
+</body>
+</html>
