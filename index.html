@@ -355,24 +355,34 @@
     </div>
     <h3>Book Your Appointment</h3>
     <p>Fill in your details and we'll confirm your slot shortly.</p>
-    <div class="fg"><label>Full Name</label><input type="text" placeholder="e.g. Rahul Sharma"></div>
-    <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
-    <div class="fg">
-      <label>Select Service</label>
-      <select>
-        <option value="">— Choose a service —</option>
-        <option>Hearing Test / Audiometry</option>
-        <option>Hearing Aid Fitting & Trial</option>
-        <option>Speech Therapy</option>
-        <option>Tinnitus Consultation</option>
-        <option>Child Hearing Evaluation</option>
-        <option>Hearing Aid Repair & Service</option>
-        <option>Ear Wax Removal</option>
-      </select>
-    </div>
-    <button class="form-submit" id="formBtn">Confirm My Appointment →</button>
-    <p class="form-phone">Or call: <a href="tel:+918102131401">08102 131 401</a></p>
-  </div>
+    <form action="https://formspree.io/f/mgonavvz" method="POST">
+
+<input type="hidden" name="_subject" value="New Appointment Booking">
+<input type="hidden" name="_next" value="https://vaibhav6250.github.io/audiology-clinic/thankyou.html">
+
+<div class="fg">
+<label>Full Name</label>
+<input type="text" name="name" placeholder="e.g. Rahul Sharma" required>
+</div>
+
+<div class="fg">
+<label>Phone Number</label>
+<input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+</div>
+
+<div class="fg">
+<label>Select Service</label>
+<select name="service" required>
+<option value="Hearing Test / Audiometry">Hearing Test / Audiometry</option>
+<option value="Speech Therapy">Speech Therapy</option>
+<option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
+</select>
+</div>
+
+<button class="form-submit" type="submit">Confirm My Appointment →</button>
+
+</form>
+</div>
 </section>
 
 <!-- TRUST BAR -->
@@ -633,6 +643,14 @@
       <div class="info-label">Our Location</div>
       <div class="info-val">Deepraj Complex, Arya Kumar Road</div>
       <div class="info-sub">Opp. Machvatoli Power House, near Maharana Pratap Bhawan, Dinkar Golambar, Langer Toli Gali, Patna – 800016</div>
+      <iframe 
+src="https://www.google.com/maps?q=Dinkar+Golambar+Patna&output=embed"
+width="100%" 
+height="300" 
+style="border:0;border-radius:10px;margin-top:20px;" 
+allowfullscreen="" 
+loading="lazy">
+</iframe>
     </div>
   </div>
   <div class="info-block fi" style="transition-delay:0.1s">
@@ -747,12 +765,6 @@
 
   function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
-
-  document.getElementById('formBtn').addEventListener('click', function() {
-    this.textContent = '✅ Appointment Requested!';
-    this.style.background = '#1A7A8A';
-    setTimeout(() => { this.textContent = 'Confirm My Appointment →'; this.style.background = ''; }, 3000);
-  });
 </script>
 </body>
 </html>
