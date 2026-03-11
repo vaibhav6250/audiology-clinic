@@ -5,19 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Audiology & Speech Therapy Clinic Patna | Hearing Test & Speech Therapy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-
-ALL CSS HERE
-
-/* PRICING */
-
-/* HEARING AID TYPES */
-
-.hearing-types { }
-
-/* TESTIMONIALS */
-
-</style>
 <style>
   :root {
     --navy:       #0B1F3A;
@@ -140,7 +127,7 @@ ALL CSS HERE
 
   /* ABOUT / DOCTORS */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .doctor-cards { display: flex; flex-direction: column; gap: 20px; }
+  .doctor-cards { display: flex; flex-direction: column; gap: 20px; margin-top: 24px; }
   .doc-card { background: #fff; border-radius: 16px; padding: 26px 28px; border: 1px solid var(--border); display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 24px rgba(11,31,58,0.05); transition: all 0.3s; }
   .doc-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(11,31,58,0.1); border-color: var(--gold-pale); }
   .doc-av { width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #fff; border: 3px solid var(--gold-pale); }
@@ -198,6 +185,18 @@ ALL CSS HERE
   .emi-badge { display: inline-block; background: var(--gold-pale); color: var(--gold); border-radius: 100px; padding: 3px 12px; font-size: 0.74rem; font-weight: 800; }
   .price-highlight { color: var(--teal); font-weight: 800; font-size: 1rem; }
 
+  /* HEARING AID TYPES */
+  .hearing-types { max-width: 900px; margin: 0 auto; }
+  .hearing-types h2 { margin-bottom: 16px; }
+  .hearing-types > p { color: var(--gray); font-size: 0.97rem; line-height: 1.8; margin-bottom: 36px; }
+  .hearing-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 36px; }
+  .ha-type-card { background: #fff; border-radius: 16px; padding: 26px 22px; border: 1px solid var(--border); text-align: center; transition: all 0.3s; }
+  .ha-type-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(11,31,58,0.09); border-color: var(--gold-pale); }
+  .ha-type-icon { font-size: 2.4rem; margin-bottom: 14px; display: block; }
+  .ha-type-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: 6px; }
+  .ha-type-abbr { display: inline-block; background: var(--gold-pale); color: var(--gold); font-size: 0.72rem; font-weight: 800; padding: 2px 10px; border-radius: 100px; margin-bottom: 10px; letter-spacing: 0.04em; }
+  .ha-type-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.65; }
+
   /* TESTIMONIALS */
   .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .testi-card { background: #fff; border-radius: 18px; padding: 30px 26px; border: 1px solid var(--border); transition: all 0.3s; }
@@ -227,6 +226,7 @@ ALL CSS HERE
   .info-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(191,138,48,0.15); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
   .info-label { font-size: 0.74rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px; }
   .info-val { color: #fff; font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
+  .info-val a { color: #fff; }
   .info-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 4px; line-height: 1.6; }
 
   /* CTA BAND */
@@ -244,9 +244,6 @@ ALL CSS HERE
   footer { background: #071424; padding: 70px 5% 28px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.6fr; gap: 60px; margin-bottom: 56px; }
   .f-brand p { font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin: 14px 0 22px; }
-  .f-socials { display: flex; gap: 10px; }
-  .fsoc { width: 38px; height: 38px; border-radius: 9px; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.2s; }
-  .fsoc:hover { background: var(--teal); color: #fff; }
   .f-col h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 18px; }
   .f-links { list-style: none; }
   .f-links li { margin-bottom: 10px; }
@@ -271,6 +268,10 @@ ALL CSS HERE
   .fi { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fi.vis { opacity: 1; transform: translateY(0); }
 
+  /* MAP */
+  .map-container { max-width: 1000px; margin: 0 auto; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 40px rgba(11,31,58,0.1); }
+  .map-container iframe { display: block; width: 100%; height: 420px; border: 0; }
+
   /* RESPONSIVE */
   @media (max-width: 1100px) {
     .hero { grid-template-columns: 1fr; text-align: center; }
@@ -281,16 +282,19 @@ ALL CSS HERE
     .testi-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .info-bar { grid-template-columns: 1fr; gap: 30px; }
+    .hearing-types-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 680px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .services-grid, .testi-grid { grid-template-columns: 1fr; }
+    .services-grid, .testi-grid, .hearing-types-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; }
     .hero { padding: 100px 5% 60px; }
     .float-btns { flex-direction: column; align-items: flex-end; bottom: 16px; right: 14px; }
     .trust-bar { gap: 18px; }
     .vstats { grid-template-columns: 1fr 1fr; }
+    .price-table { font-size: 0.82rem; }
+    .price-table td, .price-table th { padding: 12px 14px; }
   }
 </style>
 </head>
@@ -360,46 +364,42 @@ ALL CSS HERE
 
   <div class="hero-card fi" style="transition-delay:0.18s">
     <div class="hero-card-top">
-      <span style="font-size:1.5rem"></span>
+      <span style="font-size:1.5rem">🗓️</span>
       <div>
-        <strong></strong>
         <p>Walk in or call to book your complimentary test</p>
       </div>
     </div>
     <h3>Book Your Appointment</h3>
     <p>Fill in your details and we'll confirm your slot shortly.</p>
     <form action="https://formspree.io/f/mgonavvz" method="POST">
+      <input type="hidden" name="_subject" value="New Appointment Booking">
+      <input type="hidden" name="_next" value="https://vaibhav6250.github.io/audiology-clinic/thankyou.html">
 
-<input type="hidden" name="_subject" value="New Appointment Booking">
-<input type="hidden" name="_next" value="https://vaibhav6250.github.io/audiology-clinic/thankyou.html">
-
-<div class="fg">
-<label>Full Name</label>
-<input type="text" name="name" placeholder="e.g. Rahul Sharma" required>
-</div>
-
-<div class="fg">
-<label>Phone Number</label>
-<input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
-</div>
-
-<div class="fg">
-<label>Select Service</label>
-<select name="service" required>
-<option value="Hearing Test / Audiometry">Hearing Test / Audiometry</option>
-<option value="Speech Therapy">Speech Therapy</option>
-<option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
-<option value="Hearing Aid Fitting">Hearing Aid Fitting</option>
-<option value="Tinnitus Management">Tinnitus Management</option>
-<option value="Pediatric Hearing Care">Pediatric Hearing Care</option>
-<option value="Hearing Aid Repair">Hearing Aid Repair</option>
-</select>
-</div>
-
-<button class="form-submit" type="submit">Confirm My Appointment →</button>
-
-</form>
-</div>
+      <div class="fg">
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="e.g. Rahul Sharma" required>
+      </div>
+      <div class="fg">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="fg">
+        <label>Select Service</label>
+        <select name="service" required>
+          <option value="">— Choose a service —</option>
+          <option value="Hearing Test / Audiometry">Hearing Test / Audiometry</option>
+          <option value="Speech Therapy">Speech Therapy</option>
+          <option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
+          <option value="Hearing Aid Fitting">Hearing Aid Fitting</option>
+          <option value="Tinnitus Management">Tinnitus Management</option>
+          <option value="Pediatric Hearing Care">Pediatric Hearing Care</option>
+          <option value="Hearing Aid Repair">Hearing Aid Repair</option>
+        </select>
+      </div>
+      <button class="form-submit" type="submit">Confirm My Appointment →</button>
+    </form>
+    <p class="form-phone">Or call us directly: <a href="tel:+918102131401">08102 131 401</a></p>
+  </div>
 </section>
 
 <!-- TRUST BAR -->
@@ -407,6 +407,7 @@ ALL CSS HERE
   <div class="trust-item">🏅 RCI Certified Specialists</div>
   <div class="trust-item">🔬 Advanced Diagnostic Equipment</div>
   <div class="trust-item">👶 Pediatric & Adult Care</div>
+  <div class="trust-item">✅ 5000+ Patients Helped</div>
 </div>
 
 <!-- ABOUT / DOCTORS -->
@@ -415,7 +416,7 @@ ALL CSS HERE
     <div class="fi">
       <div class="label">Meet Our Specialists</div>
       <h2 class="section-title">Two Expert Doctors, One Dedicated Clinic</h2>
-      <p class="section-desc" style="margin-bottom:26px">At Audiology & Speech Therapy Clinic, our two highly qualified specialists bring decades of combined experience in diagnosing and treating hearing loss and speech disorders across all age groups.</p>
+      <p class="section-desc">At Audiology & Speech Therapy Clinic, our two highly qualified specialists bring decades of combined experience in diagnosing and treating hearing loss and speech disorders across all age groups.</p>
       <div class="doctor-cards">
         <div class="doc-card">
           <div class="doc-av">SK</div>
@@ -495,7 +496,7 @@ ALL CSS HERE
     </div>
     <div class="svc-card fi" style="transition-delay:0.24s">
       <div class="svc-icon">🔧</div>
-      <h3>Hearing Aid Inhouse Repair & Servicing</h3>
+      <h3>Hearing Aid Repair & Servicing</h3>
       <p>In-house repairs, In-house troubleshooting, and courier/parcel service for repair with the respectable company. We keep your device performing at its best.</p>
       <a href="#contact" class="svc-link">Book Repair →</a>
     </div>
@@ -511,9 +512,10 @@ ALL CSS HERE
   </div>
   <div class="brands-wrap fi">
     <div class="brand-pill">Widex</div>
-   <div class="brand-pill">ReSound</div>
-   <div class="brand-pill">Starkey</div>
-    </div>
+    <div class="brand-pill">ReSound</div>
+    <div class="brand-pill">Starkey</div>
+
+  </div>
 </section>
 
 <!-- WHY US -->
@@ -525,7 +527,7 @@ ALL CSS HERE
       <div class="reasons">
         <div class="reason">
           <div class="reason-num">1</div>
-          <div><h4>Qualified & RCI-Certified Specialists</h4><p>The most affordable and best hearing testing practices with full protocol (PTA & Speech Audiometry)</p></div>
+          <div><h4>Qualified & RCI-Certified Specialists</h4><p>The most affordable and best hearing testing practices with full protocol (PTA & Speech Audiometry).</p></div>
         </div>
         <div class="reason">
           <div class="reason-num">2</div>
@@ -568,15 +570,49 @@ ALL CSS HERE
   <table class="price-table">
     <thead>
       <tr>
-        <th>Type</th><th>Starting Price</th><th>Warranty</th><th>EMI</th><th>Best For</th>
+        <th>Type</th>
+        <th>Starting Price</th>
+        <th>Warranty</th>
+        <th>EMI</th>
+        <th>Best For</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>BTE <span class="price-type">Behind the Ear</span></td><td class="price-highlight">₹ 25,000</td><td>1–2 Years</td><td><span class="emi-badge">Available</span></td><td>Moderate to severe loss; easy to handle</td></tr>
-      <tr><td>RIC <span class="price-type">Receiver in Canal</span></td><td class="price-highlight">₹ 35,000</td><td>1–2 Years</td><td><span class="emi-badge">Available</span></td><td>Mild to moderate; discreet and comfortable</td></tr>
-      <tr><td>ITE <span class="price-type">In the Ear</span></td><td class="price-highlight">₹ 40,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Custom shell; ideal for seniors</td></tr>
-      <tr><td>CIC <span class="price-type">Completely in Canal</span></td><td class="price-highlight">₹ 45,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Nearly invisible; mild to moderate loss</td></tr>
-      <tr><td>IIC <span class="price-type">Invisible in Canal</span></td><td class="price-highlight">₹ 55,000</td><td>1 Year</td><td><span class="emi-badge">Available</span></td><td>Completely invisible; premium cosmetic choice</td></tr>
+      <tr>
+        <td>BTE <span class="price-type">Behind the Ear</span></td>
+        <td class="price-highlight">₹ 25,000</td>
+        <td>1–2 Years</td>
+        <td><span class="emi-badge">Available</span></td>
+        <td>Moderate to severe loss; easy to handle</td>
+      </tr>
+      <tr>
+        <td>RIC <span class="price-type">Receiver in Canal</span></td>
+        <td class="price-highlight">₹ 35,000</td>
+        <td>1–2 Years</td>
+        <td><span class="emi-badge">Available</span></td>
+        <td>Mild to moderate; discreet and comfortable</td>
+      </tr>
+      <tr>
+        <td>ITE <span class="price-type">In the Ear</span></td>
+        <td class="price-highlight">₹ 40,000</td>
+        <td>1 Year</td>
+        <td><span class="emi-badge">Available</span></td>
+        <td>Custom shell; ideal for seniors</td>
+      </tr>
+      <tr>
+        <td>CIC <span class="price-type">Completely in Canal</span></td>
+        <td class="price-highlight">₹ 45,000</td>
+        <td>1 Year</td>
+        <td><span class="emi-badge">Available</span></td>
+        <td>Nearly invisible; mild to moderate loss</td>
+      </tr>
+      <tr>
+        <td>IIC <span class="price-type">Invisible in Canal</span></td>
+        <td class="price-highlight">₹ 55,000</td>
+        <td>1 Year</td>
+        <td><span class="emi-badge">Available</span></td>
+        <td>Completely invisible; premium cosmetic choice</td>
+      </tr>
     </tbody>
   </table>
 </section>
@@ -585,14 +621,51 @@ ALL CSS HERE
 <section class="section">
   <div class="hearing-types fi">
     <div class="label">Hearing Aid Guide</div>
-    <h2 class="section-title">Types of Hearing Aids</h2>
-    <p>We offer multiple styles of digital hearing aids to match different hearing needs, comfort levels, and cosmetic preferences.</p>
-
-    <img src="hearing-aid-types.jpg" alt="Types of Hearing Aids including microRIE, RIE, BTE, IIC, CIC and ITC">
+    <h2 class="section-title">Types of Hearing Aids We Offer</h2>
+    <p>We offer multiple styles of digital hearing aids to match different hearing needs, comfort levels, and cosmetic preferences. Our specialists will help you find the perfect fit.</p>
+    <div class="hearing-types-grid">
+      <div class="ha-type-card">
+        <span class="ha-type-icon">👂</span>
+        <div class="ha-type-abbr">BTE</div>
+        <h4>Behind the Ear</h4>
+        <p>Sits behind the ear with a tube connecting to an ear mould. Suitable for all levels of hearing loss, very durable and easy to handle.</p>
+      </div>
+      <div class="ha-type-card">
+        <span class="ha-type-icon">🎧</span>
+        <div class="ha-type-abbr">RIC / RITE</div>
+        <h4>Receiver in Canal</h4>
+        <p>Slim, discreet design with the receiver sitting inside the ear canal. Ideal for mild to moderate hearing loss with a natural sound quality.</p>
+      </div>
+      <div class="ha-type-card">
+        <span class="ha-type-icon">🔵</span>
+        <div class="ha-type-abbr">ITE</div>
+        <h4>In the Ear</h4>
+        <p>Custom-made shell that fills the outer ear. Easy to insert and remove, popular choice for seniors and those with dexterity concerns.</p>
+      </div>
+      <div class="ha-type-card">
+        <span class="ha-type-icon">⚪</span>
+        <div class="ha-type-abbr">CIC</div>
+        <h4>Completely in Canal</h4>
+        <p>Fits almost entirely inside the ear canal, making it nearly invisible. Great for mild to moderate hearing loss with cosmetic preferences.</p>
+      </div>
+      <div class="ha-type-card">
+        <span class="ha-type-icon">🔘</span>
+        <div class="ha-type-abbr">IIC</div>
+        <h4>Invisible in Canal</h4>
+        <p>The most discreet style available — sits deep in the canal and is completely invisible when worn. Premium choice for active lifestyles.</p>
+      </div>
+      <div class="ha-type-card">
+        <span class="ha-type-icon">🔋</span>
+        <div class="ha-type-abbr">Rechargeable</div>
+        <h4>Rechargeable Models</h4>
+        <p>Available in BTE and RIC styles — simply place on the charger overnight. No battery changes needed, ideal for all age groups.</p>
+      </div>
+    </div>
   </div>
 </section>
+
 <!-- TESTIMONIALS -->
-<section class="section" id="testimonials">
+<section class="section section-cream" id="testimonials">
   <div class="section-header center">
     <div class="label">Patient Stories</div>
     <h2 class="section-title">What Our Patients Say</h2>
@@ -603,33 +676,51 @@ ALL CSS HERE
       <div class="testi-q">"</div>
       <p class="testi-text">We brought our 4-year-old for speech therapy. Within just 2 months the improvement was incredible — from barely speaking to forming complete sentences. Dr. Sanjay's patience and approach with children is truly exceptional.</p>
       <div class="testi-stars">★★★★★</div>
-      <div class="testi-author"><div class="testi-av">R</div><div><div class="testi-name">Ravi Shankar Prasad</div><div class="testi-loc">Machhua Toli, Patna</div></div></div>
+      <div class="testi-author">
+        <div class="testi-av">R</div>
+        <div>
+          <div class="testi-name">Ravi Shankar Prasad</div>
+          <div class="testi-loc">Machhua Toli, Patna</div>
+        </div>
+      </div>
     </div>
     <div class="testi-card fi" style="transition-delay:0.1s">
       <div class="testi-q">"</div>
       <p class="testi-text">My 70-year-old father had been avoiding a hearing aid for years. Dr. Alok Suman was so kind and patient — he explained everything clearly. My father can now enjoy full family conversations again. Life-changing.</p>
       <div class="testi-stars">★★★★★</div>
-      <div class="testi-author"><div class="testi-av">P</div><div><div class="testi-name">Priya Singh</div><div class="testi-loc">Kankarbagh, Patna</div></div></div>
+      <div class="testi-author">
+        <div class="testi-av">P</div>
+        <div>
+          <div class="testi-name">Priya Singh</div>
+          <div class="testi-loc">Kankarbagh, Patna</div>
+        </div>
+      </div>
     </div>
     <div class="testi-card fi" style="transition-delay:0.2s">
       <div class="testi-q">"</div>
       <p class="testi-text">I had been struggling with tinnitus for over a year. After the thorough evaluation and therapy plan from this clinic, the ringing has reduced dramatically. The team is professional, warm, and truly cares. Highly recommended.</p>
       <div class="testi-stars">★★★★★</div>
-      <div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Amit Kumar Verma</div><div class="testi-loc">Boring Road, Patna</div></div></div>
+      <div class="testi-author">
+        <div class="testi-av">A</div>
+        <div>
+          <div class="testi-name">Amit Kumar Verma</div>
+          <div class="testi-loc">Boring Road, Patna</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section section-cream">
+<section class="section">
   <div class="section-header center">
     <div class="label">Have Questions?</div>
     <h2 class="section-title">Frequently Asked Questions</h2>
   </div>
   <div class="faq-wrap">
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">How does hearing testing works? <div class="faq-ico">+</div></div>
-      <div class="faq-a">We do a comprehensive and detailed testing firstly pure tone audiometry to find your hearing threshold and secondly speech audiometry as well to find about the level at which you can identify and understand speech, because speech is what we use to communicate rather than tones.</div>
+      <div class="faq-q" onclick="toggleFaq(this)">How does hearing testing work? <div class="faq-ico">+</div></div>
+      <div class="faq-a">We do a comprehensive and detailed testing — firstly pure tone audiometry to find your hearing threshold, and secondly speech audiometry to find the level at which you can identify and understand speech, because speech is what we use to communicate rather than tones.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">How long does a hearing aid fitting take? <div class="faq-ico">+</div></div>
@@ -637,7 +728,7 @@ ALL CSS HERE
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">What hearing aid brands do you offer? <div class="faq-ico">+</div></div>
-      <div class="faq-a">We are authorised dealers for Widex, ReSound, and Starkey — covering the full range from affordable digital models to premium rechargeable and invisible-in-canal devices.</div>
+      <div class="faq-a">We are authorised dealers for Widex, ReSound, and Starkey — covering the full range from affordable digital models to premium rechargeable and invisible-in-canal devices. We also carry several other leading international brands to suit every budget.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">Do you provide speech therapy for adults? <div class="faq-ico">+</div></div>
@@ -647,132 +738,183 @@ ALL CSS HERE
       <div class="faq-q" onclick="toggleFaq(this)">What areas of Patna do you serve? <div class="faq-ico">+</div></div>
       <div class="faq-a">Our clinic is located near Dinkar Golambar on Arya Kumar Road, Patna. We serve patients from Machhua Toli, Kankarbagh, Boring Road, Rajendra Nagar, and all across Patna and Bihar. Home visit consultations are available for elderly or mobility-challenged patients.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is there a free trial for hearing aids? <div class="faq-ico">+</div></div>
+      <div class="faq-a">Yes! We offer free trial periods on our hearing aid range. You can wear and test the device in your everyday environments before making any commitment. Our specialists will fine-tune the settings during the trial to ensure the best possible fit for your hearing profile.</div>
+    </div>
   </div>
 </section>
 
-<!-- INFO BAR / CONTACT -->
-<div class="info-bar" id="contact">
-  <div class="info-block fi">
+<!-- CONTACT / LOCATION -->
+<section class="info-bar" id="contact">
+  <div class="info-block">
     <div class="info-icon">📍</div>
     <div>
-      <div class="info-label">Our Location</div>
-      <div class="info-val">Deepraj Complex, Arya Kumar Road</div>
-      <div class="info-sub">Opp. Machvatoli Power House, near Maharana Pratap Bhawan, Dinkar Golambar, Langer Toli Gali, Patna – 800016</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.86118560651784!2d85.16013720122707!3d25.612259958110684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58eddbbe4aed%3A0x722840c2a7dd0da3!2sAudiology%20%26%20Speech%20Therapy%20Clinic!5e0!3m2!1sen!2skr!4v1773129648080!5m2!1sen!2skr" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="info-label">Clinic Location</div>
+      <div class="info-val">Near Dinkar Golambar</div>
+      <div class="info-sub">Arya Kumar Road, Patna, Bihar</div>
     </div>
   </div>
-  <div class="info-block fi" style="transition-delay:0.1s">
-    <div class="info-icon">🕐</div>
-    <div>
-      <div class="info-label">Clinic Hours</div>
-      <div class="info-val">Monday – Saturday</div>
-      <div class="info-sub">Open · Closes 8:30 PM<br>Sunday: By Appointment Only</div>
-    </div>
-  </div>
-  <div class="info-block fi" style="transition-delay:0.2s">
+  <div class="info-block">
     <div class="info-icon">📞</div>
     <div>
-      <div class="info-label">Call / WhatsApp</div>
-      <div class="info-val"><a href="tel:+918102131401" style="color:#fff">08102 131 401</a></div>
-      <div class="info-sub">Call or WhatsApp anytime for quick booking &amp; enquiries</div>
+      <div class="info-label">Call Us</div>
+      <div class="info-val"><a href="tel:+918102131401">08102 131 401</a></div>
+      <div class="info-sub">Mon – Sat : 10 AM – 7 PM</div>
     </div>
   </div>
-</div>
+  <div class="info-block">
+    <div class="info-icon">✉️</div>
+    <div>
+      <div class="info-label">Email</div>
+      <div class="info-val">audiologyclinicpatna@gmail.com</div>
+      <div class="info-sub">Appointment confirmations sent via email</div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE MAP -->
+<section class="section section-cream">
+  <div class="section-header center">
+    <div class="label">Visit Our Clinic</div>
+    <h2 class="section-title">Find Us On Map</h2>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps?q=Dinkar+Golambar+Arya+Kumar+Road+Patna+Bihar&output=embed"
+      width="100%"
+      height="420"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
 
 <!-- CTA BAND -->
-<div class="cta-band">
-  <h2>Ready to Hear Life Fully Again?</h2>
-  <p>Book your free consultation today. Dr. Sanjay Kumar and Dr. Alok Suman are here to guide you to the right solution.</p>
+<section class="cta-band">
+  <h2>Start Hearing Better Today</h2>
+  <p>Early diagnosis makes a huge difference. Book your hearing test or speech consultation today.</p>
   <div class="cta-btns">
-    <a href="tel:+918102131401" class="btn-navy">📞 Call 08102 131 401</a>
-    <a href="https://wa.me/918102131401" class="btn-outline-navy">💬 WhatsApp Us</a>
+    <a href="#contact" class="btn-navy">📅 Book Appointment</a>
+    <a href="tel:+918102131401" class="btn-outline-navy">📞 Call Clinic</a>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="f-brand">
-      <div class="logo">
-        <div class="logo-mark" style="background:linear-gradient(135deg,#1E406E,#0B1F3A)">🦻</div>
+      <div class="logo" style="margin-bottom:10px">
+        <div class="logo-mark">🦻</div>
         <div>
           <div class="logo-title" style="color:#fff">Audiology & Speech Therapy Clinic</div>
-          <span class="logo-sub">Patna, Bihar</span>
+          <span class="logo-sub">Patna, Bihar &nbsp;·&nbsp; RCI Certified</span>
         </div>
       </div>
-      <p>Patna's trusted centre for comprehensive speech and hearing care. Helping individuals and families across Bihar reconnect with sound for over a decade.</p>
-      <div class="f-socials">
-        <a href="#" class="fsoc" title="Facebook">f</a>
-        <a href="#" class="fsoc" title="Instagram">📷</a>
-        <a href="https://wa.me/918102131401" class="fsoc" title="WhatsApp">💬</a>
-        <a href="#" class="fsoc" title="YouTube">▶</a>
-      </div>
+      <p>Trusted hearing and speech care clinic in Patna providing advanced audiology diagnostics, hearing aids, and speech therapy for all ages.</p>
     </div>
-    <div>
+
+    <div class="f-col">
       <h4>Quick Links</h4>
       <ul class="f-links">
         <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="#brands">Hearing Aid Brands</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#brands">Brands</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
       </ul>
     </div>
-    <div>
-      <h4>Our Services</h4>
+
+    <div class="f-col">
+      <h4>Services</h4>
       <ul class="f-links">
-        <li><a href="#">Hearing Tests & Audiometry</a></li>
-        <li><a href="#">Hearing Aid Fitting</a></li>
-        <li><a href="#">Speech Therapy</a></li>
-        <li><a href="#">Tinnitus Management</a></li>
-        <li><a href="#">Pediatric Hearing Care</a></li>
-        <li><a href="#">Hearing Aid Repair</a></li>
-        <li><a href="#">Ear Wax Removal</a></li>
+        <li><a href="#services">Hearing Test</a></li>
+        <li><a href="#services">Speech Therapy</a></li>
+        <li><a href="#services">Hearing Aid Fitting</a></li>
+        <li><a href="#services">Tinnitus Treatment</a></li>
+        <li><a href="#services">Pediatric Care</a></li>
+        <li><a href="#services">Hearing Aid Repair</a></li>
       </ul>
     </div>
-    <div>
-      <h4>Contact Us</h4>
-      <div class="f-ci"><span class="f-ci-ico">📍</span><span class="f-ci-val">Deepraj Complex, Arya Kumar Rd, Opp. Machvatoli Power House, Dinkar Golambar, Patna – 800016</span></div>
-      <div class="f-ci"><span class="f-ci-ico">📞</span><span class="f-ci-val"><a href="tel:+918102131401">08102 131 401</a></span></div>
-      <div class="f-ci"><span class="f-ci-ico">🕐</span><span class="f-ci-val">Mon–Sat: Open till 8:30 PM<br>Sunday: By Appointment</span></div>
-      <div class="f-ci"><span class="f-ci-ico">🗺️</span><span class="f-ci-val">Serving Machhua Toli, Kankarbagh, Boring Road, Rajendra Nagar & all of Patna</span></div>
+
+    <div class="f-col">
+      <h4>Contact</h4>
+      <div class="f-ci">
+        <div class="f-ci-ico">📍</div>
+        <div class="f-ci-val">
+          Arya Kumar Road<br>
+          Near Dinkar Golambar<br>
+          Patna, Bihar
+        </div>
+      </div>
+      <div class="f-ci">
+        <div class="f-ci-ico">📞</div>
+        <div class="f-ci-val"><a href="tel:+918102131401">08102 131 401</a></div>
+      </div>
+      <div class="f-ci">
+        <div class="f-ci-ico">✉️</div>
+        <div class="f-ci-val">audiologyclinicpatna@gmail.com</div>
+      </div>
+      <div class="f-ci">
+        <div class="f-ci-ico">🕐</div>
+        <div class="f-ci-val">Mon – Sat: 10 AM – 7 PM</div>
+      </div>
     </div>
   </div>
+
   <div class="footer-bottom">
-    <span>© 2026 Audiology & Speech Therapy Clinic, Patna. All rights reserved.</span>
-    <span>Dr. Sanjay Kumar &amp; Dr. Alok Suman — RCI Certified</span>
+    <div>© 2026 Audiology & Speech Therapy Clinic, Patna. All Rights Reserved.</div>
+    <div>RCI Certified &nbsp;·&nbsp; Patna, Bihar</div>
   </div>
 </footer>
 
-<!-- FLOATING BUTTONS -->
+<!-- FLOATING ACTION BUTTONS -->
 <div class="float-btns">
-  <a href="https://wa.me/918102131401" class="float-btn wa">💬 WhatsApp</a>
-  <a href="tel:+918102131401" class="float-btn call">📞 Call Now</a>
+  <a class="float-btn wa" href="https://wa.me/918102131401" target="_blank" rel="noopener">
+    💬 WhatsApp
+  </a>
+  <a class="float-btn call" href="tel:+918102131401">
+    📞 Call
+  </a>
 </div>
 
+<!-- JAVASCRIPT -->
 <script>
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
-  });
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
-
-  document.querySelectorAll('.hero .fi').forEach((el, i) => {
-    setTimeout(() => el.classList.add('vis'), 150 + i * 160);
-  });
-
-  function toggleFaq(el) {
-    const item = el.parentElement;
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+  function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("open");
   }
 
-  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  function closeMenu() {
+    document.getElementById("mobileMenu").classList.remove("open");
+  }
+
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle("open");
+  }
+
+  window.addEventListener("scroll", function () {
+    const nav = document.getElementById("navbar");
+    if (window.scrollY > 40) {
+      nav.classList.add("scrolled");
+    } else {
+      nav.classList.remove("scrolled");
+    }
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("vis");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".fi").forEach(el => {
+    observer.observe(el);
+  });
 </script>
+
 </body>
 </html>
