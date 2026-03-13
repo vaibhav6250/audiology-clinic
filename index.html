@@ -436,17 +436,22 @@
     </div>
     <h3>Book Your Appointment</h3>
     <p>Fill in your details and we'll confirm your slot shortly.</p>
-    <form action="https://formspree.io/f/mgonavvz" method="POST">
+    <form action="https://formspree.io/f/mwvrbgyv" method="POST">
       <input type="hidden" name="_subject" value="New Appointment Booking">
       <input type="hidden" name="_next" value="https://vaibhav6250.github.io/audiology-clinic/thankyou.html">
+      <input type="text" name="_gotcha" style="display:none">
       <div class="fg">
         <label>Full Name</label>
         <input type="text" name="name" placeholder="e.g. Rahul Sharma" required>
       </div>
       <div class="fg">
         <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" inputmode="numeric" pattern="[0-9+ ]{10,15}" required>
       </div>
+      <div class="fg">
+    <label>Email</label>
+    <input type="email" name="email" placeholder="example@email.com">
+    </div>
       <div class="fg">
         <label>Select Service</label>
         <select name="service" required>
@@ -455,7 +460,7 @@
           <option value="Speech Therapy">Speech Therapy</option>
           <option value="Hearing Aid Consultation">Hearing Aid Consultation</option>
           <option value="Hearing Aid Fitting">Hearing Aid Fitting</option>
-          <option value="Tinnitus Management">Articulation/Fluency/Voice Therapy</option>
+          <option value="Articulation/Fluency/Voice Therapy">Articulation/Fluency/Voice Therapy</option>
           <option value="Pediatric Hearing Care">Pediatric Hearing Care</option>
           <option value="Hearing Aid Repair">Hearing Aid Repair</option>
         </select>
@@ -510,10 +515,10 @@
       <p class="section-desc">Whether you're facing early signs of hearing loss, a child with delayed speech, or recovering from a stroke — we have the expertise and the tools to help.</p>
       <ul class="about-list">
         <li>Complete Audiological Assessments (PTA, Tympanometry, ABR/BERA, OAE)</li>
-        <li>Digital & Invisible Hearing Aid Fitting</li>
+        <li>Digital & Invisible, Removable Battery & Rechargeable Hearing Aids available.</li>
         <li>Speech And Language Therapy for Children with Delayed Speech And Language Skills</li>
         <li>Speech Rehabilitation for Adults & Post-Stroke Patients</li>
-        <li>Tinnitus (Ringing in Ear) Evaluation & Management Plans</li>
+        <li>Articulation/Fluency/Voice Therapy</li>
         <li>Newborn & Pediatric Hearing Screening Programs</li>
         <li>Balance, Dizziness & Vertigo-Related Hearing Evaluation</li>
       </ul>
